@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:sangeetham/routes/routes.dart';
 import 'package:sangeetham/views/homeScreen.dart';
