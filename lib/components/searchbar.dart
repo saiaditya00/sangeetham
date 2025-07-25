@@ -33,7 +33,7 @@ Widget searchBar(String searchText) {
         borderRadius: BorderRadius.circular(10),
       ),
       ),
-      onChanged: (String value) {
+      onSubmitted: (String value) {
       debugPrint(value);
       if (searchText == 'Songs') {
         dataController.fetchSong(searchController.text.toString());
