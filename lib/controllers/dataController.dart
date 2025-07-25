@@ -28,8 +28,9 @@ class Datacontroller extends GetxController{
   fetchAlbums(String albumName) async {
     try {
       final response = await dio.get('https://saavn.dev/api/search/albums?query=$albumName');
-      print(response.data['data']['results']);
-      songs.value = response.data['data']['results'];
+
+      albums.value = response.data['data']['results'];
+      print(albums);
     } catch (e) {
       print(e);
     }

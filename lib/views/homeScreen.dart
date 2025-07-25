@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -52,17 +52,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               tabAlignment: TabAlignment.start,
              dragStartBehavior: DragStartBehavior.start,
               isScrollable: true,
-              onTap:(index){
-                controller.updateSelectedIndex( index);
-                dataController.fetchSong(controller.searchText.toString());
-              },
+              // onTap:(index){
+              //   controller.updateSelectedIndex( index);
+              //   dataController.fetchSong(controller.searchText.toString());
+              // },
               controller: _tabController,
               tabs: const [
                 Tab(child: Text('songs', style: TextStyle(fontFamily: 'Sahitya', fontSize: 22))),
                 Tab(child: Text('Albums', style: TextStyle(fontFamily: 'Sahitya', fontSize: 22))),
-                Tab(child: Text('Playlists', style: TextStyle(fontFamily: 'Sahitya', fontSize: 22))),
-                Tab(child: Text('Artists', style: TextStyle(fontFamily: 'Sahitya', fontSize: 22))), // Add more tabs as needed
-                Tab(child: Text('Genres', style: TextStyle(fontFamily: 'Sahitya', fontSize: 22))),
+                
                 
                 
               ],
@@ -74,10 +72,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         controller: _tabController,
         children: [
           Obx(()=>Songs(searchText: controller.searchText.toString()),),
+          
           Obx(()=>albums( controller.searchText.toString()),),
-          Obx(()=>playlists( controller.searchText.toString()),),
-          Obx(() => Center(child: Text('Artists'))), // Add corresponding views for the new tabs
-          Obx(() => Center(child: Text('Genres'))),
+        
+          
         ],
       ),
       
